@@ -2,7 +2,7 @@ window.onload = function() {
  
     var messages = [];
    // var socket = io.connect('https://lab3chat-pace-cit322.c9users.io:8080');
- var socket = io.connect('https://cit233lab3.herokuapp.com:8080');   
+ var socket = io.connect('https://cit233lab3.herokuapp.com');   
     var field = document.getElementById("field");
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
