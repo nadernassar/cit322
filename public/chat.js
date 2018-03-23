@@ -2,9 +2,8 @@ window.onload = function() {
  
     var messages = [];
    // var socket = io.connect('https://lab3chat-pace-cit322.c9users.io:8080');
- var PORT = process.env.PORT || 5000;
- console.log("NN- PORT IS ", PORT);
- var socket = io.connect('https://cit233lab3.herokuapp.com:'+PORT);   
+    var PORT = process.env.PORT || 5000;
+    var socket = io.connect('https://cit233lab3.herokuapp.com');   
     var field = document.getElementById("field");
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
