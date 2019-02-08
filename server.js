@@ -3,7 +3,7 @@
 //
 // A simple chat server using Socket.IO, Express, and Async.
 //
-var http = require('https');
+var http = require('http');
 var path = require('path');
 
 var async = require('async');
@@ -78,7 +78,7 @@ function broadcast(event, data) {
   });
 }
 
-server.listen(process.env.PORT || 5000, process.env.IP || "0.0.0.0", function(){
+server.listen(process.env.PORT, process.env.IP, function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
