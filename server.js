@@ -3,7 +3,7 @@
 //
 // A simple chat server using Socket.IO, Express, and Async.
 //
-var http = require('http');
+var http = require('https');
 var path = require('path');
 
 var async = require('async');
@@ -18,9 +18,8 @@ var express = require('express');
 //
 var router = express();
 var server = http.createServer(router);
-// var io = socketio.listen(server);  --NN
-const io = socketIO(server);
-console.log("NNNN step -2");
+var io = socketio.listen(server);
+
 router.use(express.static(path.resolve(__dirname, 'client')));
 var messages = [];
 var sockets = [];
@@ -54,16 +53,13 @@ io.on('connection', function (socket) {
       });
     });
 
-    
-     socket.on('identify', function (name) {
+    socket.on('identify', function (name) {
       socket.set('name', String(name || 'Anonymous'), function (err) {
         updateRoster();
       });
-      
     });
-    
   });
-  console.log("NNNN step -3");
+
 function updateRoster() {
   async.map(
     sockets,
@@ -81,8 +77,8 @@ function broadcast(event, data) {
     socket.emit(event, data);
   });
 }
-console.log("NNNN step -4");
-server.listen(process.env.PORT, process.env.IP , function(){
+
+server.listen(process.env.PORT || 5000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
