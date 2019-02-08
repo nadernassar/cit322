@@ -1,9 +1,7 @@
 window.onload = function() {
  
     var messages = [];
-   // var socket = io.connect('https://lab3chat-pace-cit322.c9users.io:8080');
-    var PORT = process.env.PORT || 5000;
-    var socket = io.connect('https://cit233lab3.herokuapp.com');   
+    var socket = io.connect('https://chat-pace-cit322.c9users.io:8080');
     var field = document.getElementById("field");
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
@@ -11,7 +9,6 @@ window.onload = function() {
  
     socket.on('message', function (data) {
         if(data.message) {
-            console.log("I'm here in the socket.on");
             messages.push(data);
             var html = '';
             for(var i=0; i<messages.length; i++) {
