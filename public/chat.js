@@ -11,6 +11,7 @@ window.onload = function() {
  
     socket.on('message', function (data) {
         if(data.message) {
+            console.log("I'm here in the socket.on");
             messages.push(data);
             var html = '';
             for(var i=0; i<messages.length; i++) {
