@@ -9,11 +9,12 @@ app.engine('jade', require('jade').__express);
 app.use(express.static(__dirname + '/public'));
 var io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
-
+console.log("NNNN CLIENT step -1");
 app.get("/", function(req, res){
 
     res.render("page");
 });
+console.log("NNNN CLIENT step -2");
 console.log("HERE PRE SOCKET ");
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'welcome to the chatoo1' });

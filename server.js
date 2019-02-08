@@ -18,8 +18,9 @@ var express = require('express');
 //
 var router = express();
 var server = http.createServer(router);
-var io = socketio.listen(server);
-
+// var io = socketio.listen(server);  --NN
+const io = socketIO(server);
+console.log("NNNN step -2");
 router.use(express.static(path.resolve(__dirname, 'client')));
 var messages = [];
 var sockets = [];
@@ -62,7 +63,7 @@ io.on('connection', function (socket) {
     });
     
   });
-
+  console.log("NNNN step -3");
 function updateRoster() {
   async.map(
     sockets,
@@ -80,8 +81,8 @@ function broadcast(event, data) {
     socket.emit(event, data);
   });
 }
-
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+console.log("NNNN step -4");
+server.listen(process.env.PORT, process.env.IP , function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
