@@ -2,7 +2,7 @@
 var express = require("express");
 var app = express();
 //var port = 8080;
-var port = process.env.PORT
+var port = process.env.PORT;
 app.set('views', __dirname + '/tpl');
 app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
