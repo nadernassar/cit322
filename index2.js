@@ -14,6 +14,7 @@ app.get("/", function(req, res){
 
     res.render("page");
 });
+console.log("HERE PRE SOCKET ");
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'welcome to the chatoo1' });
     socket.on('send', function (data) {
