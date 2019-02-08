@@ -6,8 +6,8 @@ app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
 app.use(express.static(__dirname + '/public'));
 var io = require('socket.io').listen(app.listen(PORT));
-console.log("Listening on port " + PORT);
-
+console.log("NNN Listening on port " + PORT);
+ 
 app.get("/", function(req, res){
 
     res.render("page");
