@@ -27,7 +27,7 @@ window.onload = function() {
             alert("Please type your name!");
         } else {
             var text = field.value;
-            alert("Please type your name!" + text);
+           
             socket.emit('send', { message: text, username: name.value });
         }
     };
